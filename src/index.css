@@ -1,0 +1,185 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Design System - Nature-inspired colors, gradients, fonts, and animations */
+
+@layer base {
+  :root {
+    --background: 45 15% 97%;
+    --foreground: 25 15% 15%;
+
+    /* Nature-inspired Color Palette */
+    --primary: 120 40% 45%; /* Forest Green */
+    --primary-foreground: 0 0% 98%;
+    
+    --secondary: 35 25% 75%; /* Warm Beige */
+    --secondary-foreground: 25 15% 15%;
+    
+    --accent: 195 40% 70%; /* Gentle Blue */
+    --accent-foreground: 0 0% 98%;
+    
+    --muted: 45 20% 92%;
+    --muted-foreground: 25 10% 45%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 25 15% 15%;
+    
+    --border: 45 15% 85%;
+    --input: 45 15% 90%;
+    --ring: 120 40% 45%;
+
+    /* Nature Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(120 40% 45%) 0%, hsl(35 25% 75%) 100%);
+    --gradient-nature: linear-gradient(45deg, hsl(120 35% 85%) 0%, hsl(195 35% 85%) 50%, hsl(35 30% 85%) 100%);
+    --gradient-organic: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.6) 100%);
+    --gradient-leaf: linear-gradient(90deg, hsl(120 40% 45%), hsl(120 50% 35%));
+
+    --radius: 1.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Nature-inspired Component Styles */
+@layer components {
+  .organic-card {
+    @apply backdrop-blur-sm bg-white/80 border border-primary/10 shadow-lg rounded-3xl;
+  }
+  
+  .nature-glow {
+    box-shadow: 0 8px 32px hsla(120, 40%, 45%, 0.15);
+  }
+  
+  .gentle-pulse {
+    animation: gentle-pulse 3s ease-in-out infinite;
+  }
+  
+  .floating-leaf {
+    animation: leaf-float 4s ease-in-out infinite;
+  }
+  
+  .gradient-text {
+    background: var(--gradient-leaf);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .nature-hero {
+    background: var(--gradient-nature);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .nature-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M40 20c11.046 0 20 8.954 20 20s-8.954 20-20 20-20-8.954-20-20 8.954-20 20-20zm0 2c-9.941 0-18 8.059-18 18s8.059 18 18 18 18-8.059 18-18-8.059-18-18-18z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    animation: nature-drift 25s linear infinite;
+  }
+  
+  .ripple-effect {
+    animation: water-ripple 4s ease-in-out infinite;
+  }
+}
+
+/* Nature-inspired Animations */
+@keyframes gentle-pulse {
+  0%, 100% {
+    box-shadow: 0 8px 32px hsla(120, 40%, 45%, 0.15);
+  }
+  50% {
+    box-shadow: 0 12px 40px hsla(120, 40%, 45%, 0.25);
+  }
+}
+
+@keyframes leaf-float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-5px) rotate(1deg);
+  }
+  66% {
+    transform: translateY(-8px) rotate(-1deg);
+  }
+}
+
+@keyframes nature-drift {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+  25% {
+    transform: translateX(-20px) translateY(-10px);
+  }
+  50% {
+    transform: translateX(-40px) translateY(0);
+  }
+  75% {
+    transform: translateX(-60px) translateY(-5px);
+  }
+  100% {
+    transform: translateX(-80px) translateY(0);
+  }
+}
+
+@keyframes water-ripple {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes sway {
+  0%, 100% {
+    transform: translateX(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateX(3px) rotate(2deg);
+  }
+}
+
+@keyframes grow {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+
+.sway-animation {
+  animation: sway 3s ease-in-out infinite;
+}
+
+.grow-animation {
+  animation: grow 0.3s ease-out;
+}
